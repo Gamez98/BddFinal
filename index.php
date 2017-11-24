@@ -1,3 +1,21 @@
+<?php
+   $db =  mysqli_connect("localhost" , "root" , "" , "blogs"); 
+   session_start();
+
+   $user_check = $_SESSION["login_user"];
+
+   $ses_sql = mysqli_query($db, "SELECT username FROM users WHERE username = '$user_check'");
+   $row = mysqli_fetch_array($ses_sql, MYSQLI_ASSOC);
+
+   $login_session = $row['username'];
+
+   if(!isset($_SESSION['login_user']))
+   {
+       header("location: login.php");
+   }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +24,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="./css/style.css"/>
 
 </head>
 
 <body>
 
+<h1>Welcome <?php echo $login_session; ?></h1> 
 <!-- Button trigger modal -->
 <button class="btn btn-info btn-block" style="width:100%;" data-toggle="modal" data-target="#myModal">Crear Post</button>
 

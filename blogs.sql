@@ -24,6 +24,17 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+CREATE TABLE users (
+    id int PRIMARY KEY NOT NULL,
+    name VARCHAR(45) NOT NULL,
+    last_name VARCHAR(45) NOT NULL,
+    phone VARCHAR(45) NOT NULL,
+    age VARCHAR(45) NOT NULL,
+    username VARCHAR(45) NOT NULL,
+    mail VARCHAR(45) NOT NULL,
+    password VARCHAR(45) NOT NULL,
+    img BLOB NOT NULL
+);
 --
 -- Table structure for table `comments`
 --
