@@ -53,7 +53,7 @@
     
     <form action="insert_post.php" method="post">
     <div class="form-group">
-        <br>
+      <br>
       <label for="exampleInputEmail1">Usuario</label>
       <input type="text" class="form-control" id="exampleInputEmail1" name="usuario"  placeholder="Enter username">
       <small id="emailHelp" class="form-text text-muted">Aún no hago las sesiones</small>
@@ -79,7 +79,12 @@
 
 <?php 
 $conn = new mysqli("localhost", "root", "", "blogs");
-if(!$conn){ echo "no hay conexion";}
+
+   if(!$conn)
+   { 
+        echo "<script> alert(\"Error de base de datos\"); </script>";
+   }
+
 $posts = "SELECT * FROM post";
 $result_post = $conn->query($posts);
 //$result_comments = $conn->query($comentarios);
@@ -89,7 +94,11 @@ echo "
 <div class=\"detailBox\">
     <div class=\"titleBox\">
       <label>" .  $row["tema"]  . "</label>
-        <button type=\"button\" class=\"close\" aria-hidden=\"true\">&times;</button>
+
+      <form action=\"delete_post.php\">
+         <button type=\"input\" class=\"close\" aria-hidden=\"true\">&times;</button>
+      </form>
+
     </div>
     <div class=\"commentBox\">
 
