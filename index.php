@@ -35,7 +35,9 @@
 <h1>Welcome <?php echo $login_session; ?></h1> 
 <!-- Button trigger modal -->
 <button class="btn btn-info btn-block" style="width:100%;" data-toggle="modal" data-target="#myModal">Crear Post</button>
-
+<form action="close_session.php" method="POST">
+   <button class="btn btn-danger btn-block" style="width:100%;">Cerrar Sesion</button>
+</form>
 
 <!-- Modal --><br>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
