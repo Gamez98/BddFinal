@@ -7,9 +7,9 @@
     position: relative;
 }
 
-body {
-    padding: 10px;
-    margin: 10px;
+* {
+    padding: 0;
+    margin: 0;
 }
 
 .titleBox {
